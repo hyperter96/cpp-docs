@@ -5,19 +5,22 @@ import Highlight, { defaultProps } from 'prism-react-renderer'
 
 import { ButtonLink } from '@/components/Button'
 import { HeroBackground } from '@/components/HeroBackground'
-import blurAmberImage from '@/images/blur-amber.png'
+import blurLimeImage from '@/images/blur-cyan.png'
 import blurIndigoImage from '@/images/blur-indigo.png'
 
-const codeLanguage = 'c'
-const code = `const std = @import("std");
+const codeLanguage = 'cpp'
+const code = `#include <iostream>
+using namespace std;
 
-pub fn main() void {
-    std.debug.print("Hello, World Zig!\\n", .{});
+int main() {
+    cout << "Hello World";
+ 
+    return 0;
 }`
 
 const tabs = [
-  { name: 'main.zig', isActive: true },
-  { name: 'build.zig', isActive: false },
+  { name: 'main.cpp', isActive: true },
+  { name: 'main.h', isActive: false },
 ]
 
 export function Hero() {
@@ -28,7 +31,7 @@ export function Hero() {
           <div className="relative z-10 md:text-center lg:text-left">
             <div className="absolute bottom-full right-full -mr-72 -mb-56 opacity-50">
               <Image
-                src={blurAmberImage}
+                src={blurLimeImage}
                 alt=""
                 layout="fixed"
                 width={530}
@@ -38,8 +41,8 @@ export function Hero() {
               />
             </div>
             <div className="relative">
-              <p className="inline bg-gradient-to-r from-amber-200 via-amber-400 to-amber-200 bg-clip-text font-display text-5xl tracking-tight text-transparent">
-                Zig 编程知识库
+              <p className="inline bg-gradient-to-r from-lime-200 via-lime-400 to-lime-200 bg-clip-text font-display text-5xl tracking-tight text-transparent">
+                C++ 编程知识库
               </p>
               <p className="mt-3 text-2xl tracking-tight text-slate-400">
                 高性能、通用的编程语言和工具链
@@ -47,7 +50,7 @@ export function Hero() {
               <div className="mt-8 flex space-x-4 md:justify-center lg:justify-start">
                 <ButtonLink href="/">快速开始</ButtonLink>
                 <ButtonLink
-                  href="https://github.com/hyperter96/zig-docs"
+                  href="https://github.com/hyperter96/cpp-docs"
                   variant="secondary"
                 >
                   在GitHub查看
@@ -62,7 +65,7 @@ export function Hero() {
             <div className="relative">
               <div className="absolute -top-64 -right-64">
                 <Image
-                  src={blurAmberImage}
+                  src={blurLimeImage}
                   alt=""
                   layout="fixed"
                   width={530}
@@ -82,11 +85,11 @@ export function Hero() {
                   priority
                 />
               </div>
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-amber-300 via-amber-300/70 to-amber-300 opacity-10 blur-lg" />
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-amber-300 via-amber-300/70 to-amber-300 opacity-10" />
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-lime-300 via-lime-300/70 to-lime-300 opacity-10 blur-lg" />
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-lime-300 via-lime-300/70 to-lime-300 opacity-10" />
               <div className="relative rounded-2xl bg-[#0A101F]/80 ring-1 ring-white/10 backdrop-blur">
-                <div className="absolute -top-px left-20 right-11 h-px bg-gradient-to-r from-amber-300/0 via-amber-300/70 to-amber-300/0" />
-                <div className="absolute -bottom-px left-11 right-20 h-px bg-gradient-to-r from-amber-400/0 via-amber-400 to-amber-400/0" />
+                <div className="absolute -top-px left-20 right-11 h-px bg-gradient-to-r from-lime-300/0 via-lime-300/70 to-lime-300/0" />
+                <div className="absolute -bottom-px left-11 right-20 h-px bg-gradient-to-r from-lime-400/0 via-lime-400 to-lime-400/0" />
                 <div className="pl-4 pt-4">
                   <svg
                     aria-hidden="true"
@@ -102,7 +105,7 @@ export function Hero() {
                       <div
                         key={tab.name}
                         className={clsx('flex h-6 rounded-full', {
-                          'bg-gradient-to-r from-amber-400/30 via-amber-400 to-amber-400/30 p-px font-medium text-amber-300':
+                          'bg-gradient-to-r from-lime-400/30 via-lime-400 to-lime-400/30 p-px font-medium text-lime-300':
                             tab.isActive,
                           'text-slate-500': !tab.isActive,
                         })}

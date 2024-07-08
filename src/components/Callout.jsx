@@ -6,20 +6,20 @@ const styles = {
   note: {
     container:
       'bg-zinc-50 dark:bg-zinc-800/60 dark:ring-1 dark:ring-slate-300/10',
-    title: 'text-amber-900 dark:text-amber-400',
-    body: 'text-amber-800 prose-code:text-amber-900 dark:text-slate-300 dark:prose-code:text-slate-300 prose-a:text-amber-900 [--tw-prose-background:theme(colors.amber.50)]',
+    title: 'text-lime-900 dark:text-lime-400',
+    body: 'text-lime-800 prose-code:text-lime-900 dark:text-slate-300 dark:prose-code:text-slate-300 prose-a:text-lime-900 [--tw-prose-background:theme(colors.lime.50)]',
   },
   warning: {
     container:
-      'bg-amber-50 dark:bg-zinc-800/60 dark:ring-1 dark:ring-slate-300/10',
-    title: 'text-amber-900 dark:text-amber-500',
-    body: 'text-amber-800 prose-code:text-amber-900 prose-a:text-amber-900 [--tw-prose-underline:theme(colors.amber.400)] dark:[--tw-prose-underline:theme(colors.amber.700)] [--tw-prose-background:theme(colors.amber.50)] dark:text-slate-300 dark:prose-code:text-slate-300',
+      'bg-lime-50 dark:bg-zinc-800/60 dark:ring-1 dark:ring-slate-300/10',
+    title: 'text-lime-900 dark:text-lime-500',
+    body: 'text-lime-800 prose-code:text-lime-900 prose-a:text-lime-900 [--tw-prose-underline:theme(colors.lime.400)] dark:[--tw-prose-underline:theme(colors.lime.700)] [--tw-prose-background:theme(colors.lime.50)] dark:text-slate-300 dark:prose-code:text-slate-300',
   },
 }
 
 const icons = {
   note: (props) => <Icon icon="lightbulb" {...props} />,
-  warning: (props) => <Icon icon="warning" color="amber" {...props} />,
+  warning: (props) => <Icon icon="warning" color="lime" {...props} />,
 }
 
 export function Callout({ type = 'note', title, children }) {
