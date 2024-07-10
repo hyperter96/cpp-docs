@@ -19,7 +19,7 @@ const navigation = [
     links: [
       { title: '简单介绍', href: '/'},
       { title: '功能特色', href: '/docs/get-started/features' },
-      { title: 'g++ 安装', href: '/docs/get-started/installation' },
+      { title: 'gcc 和 g++ 安装', href: '/docs/get-started/installation' },
     ],
   },
   {
