@@ -23,8 +23,9 @@ const navigation = [
     ],
   },
   {
-    title: 'References',
+    title: '核心概念',
     links: [
+      { title: '高层次概述', href: '/docs/core-concept/high-level-overview'},
       { title: 'Account Constraints', href: '/docs/account-constraints' },
     ],
   },

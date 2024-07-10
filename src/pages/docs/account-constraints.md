@@ -3,7 +3,7 @@ title: Account Constraints
 description: Anchor Account Constraint Examples
 ---
 
-Minimal reference examples for Anchor account [constraints](https://docs.rs/anchor-lang/latest/anchor_lang/derive.Accounts.html).
+Minimal reference examples for Anchor account [constraints](https://docs.rs/anchor-lang/latest/anchor_lang/derive.Accounts.html). `a`
 
 ## Instruction Attribute
 
