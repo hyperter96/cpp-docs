@@ -26,9 +26,14 @@ const navigation = [
     title: '核心概念',
     links: [
       { title: '高层次概述', href: '/docs/core-concept/high-level-overview'},
-      { title: 'Account Constraints', href: '/docs/account-constraints' },
     ],
   },
+  {
+    title: '进阶学习',
+    links: [
+      { title: '类型转换', href: '/docs/advanced/type-cast'},
+    ],
+  }
 ]
 
 function getNodeText(node) {

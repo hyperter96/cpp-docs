@@ -12,7 +12,7 @@ C++ 是一种通用的编程语言和工具链，用于维护**健壮**、**最�
 
 {% link-grid-link title="高层次概述" icon="plugins" href="/docs/core-concept/high-level-overview" description="对C++程序的高层次概述" /%}
 
-{% link-grid-link title="Intro to Solana" icon="presets" href="/docs/intro-to-solana" description="Brief intro to programming on Solana." /%}
+{% link-grid-link title="类型转换" icon="presets" href="/docs/advanced/type-cast" description="在进阶学习中，我们将讲解隐式和显式类型转换" /%}
 
 {% link-grid-link title="CLI reference" icon="theming" href="/docs/cli" description="A CLI is provided to support building and managing an Anchor workspace." /%}
 
