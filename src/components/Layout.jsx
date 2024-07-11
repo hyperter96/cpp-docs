@@ -52,7 +52,7 @@ function Header({ navigation }) {
       </div>
       <div className="relative flex basis-0 justify-end space-x-6 sm:space-x-8 md:flex-grow">
         <ThemeSelector className="relative z-10" />
-        <Link href="https://github.com/hyperter96/zig-docs" className="group">
+        <Link href="https://github.com/hyperter96/cpp-docs" className="group">
 
           <span className="sr-only">GitHub</span>
           <svg
