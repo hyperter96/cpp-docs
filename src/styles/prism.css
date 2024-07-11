@@ -16,7 +16,7 @@ pre[class*='language-'] {
 .token.rule,
 .token.pseudo-class,
 .token.important {
-  color: theme('colors.slate.300');
+  color: theme('colors.violet.200');
 }
 
 .token.module {
