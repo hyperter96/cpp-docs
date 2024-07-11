@@ -1,4 +1,6 @@
-# Anchor Docs
+# Cpp Programming Docs
+
+The site is up at [https://cpp.hyperter.top](https://cpp.hyperter.top).
 
 ## Getting started
 

@@ -1,5 +1,6 @@
 pre[class*='language-'] {
   color: theme('colors.lime.100');
+  /* font: 14px Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace; */
 }
 
 .token.tag,
