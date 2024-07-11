@@ -53,7 +53,7 @@ C++提供了关键字`explicit`，可以阻止不应该允许的经过转换构�
 
 先看一下隐式转换的情形：
 
-```cpp
+```cpp {% lineNum=true %}
 // 类的通过构造函数的隐式转换:
 #include <iostream>
 using namespace std;
@@ -82,7 +82,7 @@ int main ()
 
 再看下面的一个例子：
 
-```cpp
+```cpp {% lineNum=true %}
 #include <iostream>
 using namespace std;
 

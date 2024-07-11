@@ -1,7 +1,35 @@
-import { Fragment } from 'react'
+import styled from 'styled-components'
 import Highlight, { defaultProps } from 'prism-react-renderer'
 
-export function Fence({ children, language }) {
+const LineNo = styled.span`
+  display: inline-block;
+  width: 2em;
+  user-select: none;
+  opacity: 0.5;
+`
+
+export function Fence({ children, language, lineNum }) {
+  if (lineNum) {
+    return (
+      <Highlight
+        {...defaultProps}
+        code={children.trimEnd()}
+        language={language}
+        theme={undefined}
+      >
+        {({ className, style, tokens, getLineProps, getTokenProps }) => (
+          <pre className={className} style={style}>
+            {tokens.map((line, i) => (
+            <div {...getLineProps({ line, key: i })}>
+              <LineNo>{i + 1}</LineNo>
+              {line.map((token, key) => <span {...getTokenProps({ token, key })} />)}
+            </div>
+          ))}
+          </pre>
+        )}
+      </Highlight>
+    )
+  }
   return (
     <Highlight
       {...defaultProps}
@@ -9,18 +37,13 @@ export function Fence({ children, language }) {
       language={language}
       theme={undefined}
     >
-      {({ className, style, tokens, getTokenProps }) => (
+      {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <pre className={className} style={style}>
-          <code>
-            {tokens.map((line, index) => (
-              <Fragment key={index}>
-                {line.map((token, index) => (
-                  <span key={index} {...getTokenProps({ token })} />
-                ))}
-                {'\n'}
-              </Fragment>
-            ))}
-          </code>
+          {tokens.map((line, i) => (
+          <div {...getLineProps({ line, key: i })}>
+            {line.map((token, key) => <span {...getTokenProps({ token, key })} />)}
+          </div>
+        ))}
         </pre>
       )}
     </Highlight>
