@@ -2,7 +2,7 @@ import Head from 'next/head'
 import { slugifyWithCounter } from '@sindresorhus/slugify'
 import PlausibleProvider from 'next-plausible'
 
-import Prism from 'prism-react-renderer/prism'
+import {Prism} from 'prism-react-renderer'
 ;(typeof global !== 'undefined' ? global : window).Prism = Prism
 
 require('prismjs/components/prism-rust')
