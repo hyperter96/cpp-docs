@@ -1,7 +1,7 @@
 import { Fragment } from 'react'
 import Image from "next/legacy/image"
 import clsx from 'clsx'
-import Highlight, { defaultProps } from 'prism-react-renderer'
+import {Highlight, themes, defaultProps } from 'prism-react-renderer'
 
 import { ButtonLink } from '@/components/Button'
 import { HeroBackground } from '@/components/HeroBackground'
@@ -87,7 +87,7 @@ export function Hero() {
               </div>
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-lime-300 via-lime-300/70 to-lime-300 opacity-10 blur-lg" />
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-lime-300 via-lime-300/70 to-lime-300 opacity-10" />
-              <div className="relative rounded-2xl bg-[#0A101F]/80 ring-1 ring-white/10 backdrop-blur">
+              <div className="relative rounded-2xl bg-[#011627] ring-1 ring-white/10 backdrop-blur">
                 <div className="absolute -top-px left-20 right-11 h-px bg-gradient-to-r from-lime-300/0 via-lime-300/70 to-lime-300/0" />
                 <div className="absolute -bottom-px left-11 right-20 h-px bg-gradient-to-r from-lime-400/0 via-lime-400 to-lime-400/0" />
                 <div className="pl-4 pt-4">
@@ -130,7 +130,7 @@ export function Hero() {
                         length: code.split('\n').length,
                       }).map((_, index) => (
                         <Fragment key={index}>
-                          {(index + 1).toString().padStart(2, '0')}
+                          {(index + 1).toString()}
                           <br />
                         </Fragment>
                       ))}
@@ -139,7 +139,7 @@ export function Hero() {
                       {...defaultProps}
                       code={code}
                       language={codeLanguage}
-                      theme={undefined}
+                      theme={themes.nightOwl}
                     >
                       {({
                         className,
