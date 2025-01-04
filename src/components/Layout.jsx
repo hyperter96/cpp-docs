@@ -189,6 +189,7 @@ export function Layout({ children, title, navigation, tableOfContents }) {
                       <ul className="mt-2 space-y-3 pl-5 text-slate-500 dark:text-slate-400">
                         {section.children.map((subSection) => (
                           <li key={subSection.id}>
+                            <h4>
                             <Link
                               href={`#${subSection.id}`}
                               className={
@@ -200,6 +201,25 @@ export function Layout({ children, title, navigation, tableOfContents }) {
                               {subSection.title}
 
                             </Link>
+                            </h4>
+                            {subSection.children.length > 0 && (
+                             <ul className="mt-2 space-y-3 pl-5 text-slate-500 dark:text-slate-400">
+                              {subSection.children.map((subSubSection) => (
+                                <li key={subSubSection.id}>
+                                  <Link
+                                      href={`#${subSubSection.id}`}
+                                      className={
+                                       isActive(subSection)
+                                       ? 'text-lime-500'
+                                       : 'hover:text-slate-600 dark:hover:text-slate-300'
+                                      }
+                                    >
+                                    {subSubSection.title}
+                                  </Link>
+                                </li>
+                              ))}
+                             </ul>
+                            )}
                           </li>
                         ))}
                       </ul>

@@ -1,41 +1,23 @@
 import Head from 'next/head'
+import { navigationMap } from '@/components/utils/global'
 import { slugifyWithCounter } from '@sindresorhus/slugify'
 import PlausibleProvider from 'next-plausible'
 
-import {Prism} from 'prism-react-renderer'
+import { Prism } from 'prism-react-renderer'
 ;(typeof global !== 'undefined' ? global : window).Prism = Prism
 
 require('prismjs/components/prism-rust')
 require('prismjs/components/prism-toml')
 require('prismjs/components/prism-bash')
+require('prismjs/components/prism-cmake')
+require('prismjs/components/prism-c')
+require('prismjs/components/prism-cpp')
 
 import { Layout } from '@/components/Layout'
 
 import 'focus-visible'
 import '@/styles/tailwind.css'
-import "@/styles/scrollBar.css"
-const navigation = [
-  {
-    title: '快速开始',
-    links: [
-      { title: '简单介绍', href: '/'},
-      { title: '功能特色', href: '/docs/get-started/features' },
-      { title: 'gcc 和 g++ 安装', href: '/docs/get-started/installation' },
-    ],
-  },
-  {
-    title: '核心概念',
-    links: [
-      { title: '高层次概述', href: '/docs/core-concept/high-level-overview'},
-    ],
-  },
-  {
-    title: '进阶学习',
-    links: [
-      { title: '类型转换', href: '/docs/advanced/type-cast'},
-    ],
-  }
-]
+import '@/styles/scrollBar.css'
 
 function getNodeText(node) {
   let text = ''
@@ -52,17 +34,25 @@ function collectHeadings(nodes, slugify = slugifyWithCounter()) {
   let sections = []
 
   for (let node of nodes) {
-    if (/^h[23]$/.test(node.name)) {
+    if (/^h[234]$/.test(node.name)) {
       let title = getNodeText(node)
       if (title) {
         let id = slugify(title)
         node.attributes.id = id
+        if (node.name === 'h4') {
+          let l = sections[sections.length - 1].children.length
+          sections[sections.length - 1].children[l - 1].children.push({
+            ...node.attributes,
+            title,
+          })
+        }
         if (node.name === 'h3') {
           sections[sections.length - 1].children.push({
             ...node.attributes,
             title,
+            children: [],
           })
-        } else {
+        } else if (node.name === 'h2') {
           sections.push({ ...node.attributes, title, children: [] })
         }
       }
@@ -77,15 +67,14 @@ function collectHeadings(nodes, slugify = slugifyWithCounter()) {
 export default function App({ Component, pageProps }) {
   let title = pageProps.markdoc?.frontmatter.title
 
-  let pageTitle =
-    pageProps.markdoc?.frontmatter.pageTitle ||
-    `${pageProps.markdoc?.frontmatter.title} - Docs`
-
   let description = pageProps.markdoc?.frontmatter.description
 
-  let tableOfContents = pageProps.markdoc?.content
-    ? collectHeadings(pageProps.markdoc.content)
-    : []
+  let content = pageProps.markdoc?.content
+
+  let tableOfContents = content ? collectHeadings(content) : []
+
+  let pageTitle =
+    content.length > 0 ? `${content[0].children[0]} - Docs` : `Zig - Docs`
 
   return (
     <>
@@ -115,7 +104,7 @@ export default function App({ Component, pageProps }) {
           />
         </Head>
         <Layout
-          navigation={navigation}
+          navigation={navigationMap['zh-CN']}
           title={title}
           tableOfContents={tableOfContents}
         >
